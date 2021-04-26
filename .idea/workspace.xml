@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="efea5cd2-158f-47bb-84b8-dcf5df42bc2c" name="Default Changelist" comment="end version" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qkoC0qjIOvBFnfPtP2wVHLd4NH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\react11\projects\bascetballproject\my-app\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\react11\projects\bascetballproject\my-app\src\pages\cart\components" />
+      <recent name="C:\react11\projects\bascetballproject\my-app\src\pages\cart" />
+      <recent name="C:\react11\projects\bascetballproject\my-app\src\pages\authorization" />
+      <recent name="C:\react11\projects\bascetballproject\my-app\src" />
+      <recent name="C:\react11\projects\bascetballproject\my-app\src\pages" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="efea5cd2-158f-47bb-84b8-dcf5df42bc2c" name="Default Changelist" comment="" />
+      <created>1617632818596</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617632818596</updated>
+      <workItem from="1617632822231" duration="11879000" />
+      <workItem from="1617867832004" duration="27860000" />
+      <workItem from="1617993153751" duration="637000" />
+      <workItem from="1618217149309" duration="14635000" />
+      <workItem from="1618387069411" duration="4933000" />
+      <workItem from="1618424913606" duration="631000" />
+      <workItem from="1618471074203" duration="1302000" />
+      <workItem from="1618637689334" duration="4228000" />
+      <workItem from="1618642177697" duration="20295000" />
+      <workItem from="1618816870526" duration="3375000" />
+      <workItem from="1618905429086" duration="27642000" />
+      <workItem from="1618942973021" duration="3758000" />
+      <workItem from="1619154819891" duration="6835000" />
+      <workItem from="1619163297093" duration="33274000" />
+      <workItem from="1619355147395" duration="1197000" />
+      <workItem from="1619417461170" duration="21950000" />
+      <workItem from="1619463384147" duration="321000" />
+    </task>
+    <task id="LOCAL-00001" summary="end version">
+      <created>1619426323553</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619426323553</updated>
+    </task>
+    <task id="LOCAL-00002" summary="end version">
+      <created>1619427409705</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619427409705</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="test" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="end version" />
+    <option name="LAST_COMMIT_MESSAGE" value="end version" />
+  </component>
+</project>
