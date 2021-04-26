@@ -31,7 +31,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\react11\projects\bascetballproject\my-app\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\test-test\test-test\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -67,7 +67,7 @@
       <workItem from="1619163297093" duration="33274000" />
       <workItem from="1619355147395" duration="1197000" />
       <workItem from="1619417461170" duration="21950000" />
-      <workItem from="1619463384147" duration="321000" />
+      <workItem from="1619463384147" duration="1179000" />
     </task>
     <task id="LOCAL-00001" summary="end version">
       <created>1619426323553</created>

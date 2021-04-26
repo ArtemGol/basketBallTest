@@ -17,6 +17,12 @@ export const CardPlayersPath = '/card_players'
 export const PlayerDetailsPath = '/player/'
 export const AddUpdatePlayerPath = '/add_update_player'
 
+export const MainRoutes = {
+    SignInPath: {
+        link: '/sign_in'
+    }
+}
+
 export const routes = [
     {
         path: "/",
@@ -24,7 +30,7 @@ export const routes = [
         main: () => <SignIn/>
     },
     {
-        path: SignInPath,
+        path: MainRoutes.SignInPath.link,
         main: () => <SignIn/>
     },
     {
