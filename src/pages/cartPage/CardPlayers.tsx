@@ -17,7 +17,7 @@ import {useAppDispatch} from "../../core/redux/store"
 export const CardPlayers = () => {
   const dispatch: any = useAppDispatch()
   const query: URLSearchParams = useQuery()
-  const history: any = useHistory()
+  const history = useHistory()
   const {teamCount} = useTeamSelector(state => state.team)
   const teamsOptions = useTeamSelector(state => state.team?.teams.map(option => {
     return {value: option.id, label: option.name}

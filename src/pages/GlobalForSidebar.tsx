@@ -4,7 +4,7 @@ import teams from "../assets/icon/group_person.png"
 import players from "../assets/icon/person.png"
 import {logout} from "../modules/auth/authSlice"
 import {useAppDispatch} from "../core/redux/store";
-import {CardPlayersPath, CardTeamsPath} from "./routes";
+import {MainRoutes} from "./routes";
 
 export const GlobalForSidebar: FC<{ image: string, mobile?: boolean }> = ({image, mobile}) => {
     const dispatch = useAppDispatch()
@@ -13,11 +13,11 @@ export const GlobalForSidebar: FC<{ image: string, mobile?: boolean }> = ({image
     }
     return (
         <>
-            <NavLink to={CardTeamsPath} activeClassName={'active'}>
+            <NavLink to={MainRoutes.CardTeamsPath.link} activeClassName={'active'}>
                 <img src={teams} alt="team"/>
                 <nav>Teams</nav>
             </NavLink>
-            <NavLink to={CardPlayersPath} activeClassName={'active'}>
+            <NavLink to={MainRoutes.CardPlayersPath.link} activeClassName={'active'}>
                 <img src={players} alt="player"/>
                 <nav>Players</nav>
             </NavLink>

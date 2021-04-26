@@ -6,7 +6,7 @@ import {
 } from "../../../styles/forCart/CardItemStyles";
 import { NavLink } from "react-router-dom";
 import { useTeamSelector } from "../../../modules/team/teamSlice";
-import {PlayerDetailsPath, TeamDetailsPath} from "../../routes";
+import {MainRoutes} from "../../routes";
 
 //CartItemPlayer: null, CartItemTeam: team
 
@@ -25,7 +25,7 @@ export const CartItemComponent: FC<{
   );
   return (
     <CardItemStyles>
-      <NavLink to={team ? TeamDetailsPath + id : PlayerDetailsPath + id}>
+      <NavLink to={team ? MainRoutes.TeamDetailsPath.link + id : MainRoutes.PlayerDetailsPath.link + id}>
         <CardItemImageStyles team={team}>
           <img src={image} alt="label" />
         </CardItemImageStyles>
@@ -33,7 +33,7 @@ export const CartItemComponent: FC<{
       <CardItemDataStyles>
         <div className={"firstBlock"}>
           {name}
-          <NavLink to={PlayerDetailsPath + id}>{!team && ` #${number}`}</NavLink>
+          <NavLink to={MainRoutes.PlayerDetailsPath.link + id}>{!team && ` #${number}`}</NavLink>
         </div>
         <div className={"secondBlock"}>
           {team ? `Year of foundation: ${data}` : playerTeam && playerTeam.name}

@@ -1,6 +1,7 @@
 import React, {FC} from 'react'
 import {useAuthSelector} from "./modules/auth/authSlice"
 import {Redirect, Route} from "react-router-dom"
+import {MainRoutes} from "./pages/routes";
 
 export const PrivateRoute: FC = ({children, ...rest}) => {
 
@@ -8,7 +9,7 @@ export const PrivateRoute: FC = ({children, ...rest}) => {
 
     return <Route
         {...rest}
-        render={() => isAuth ? children : <Redirect to={'/sign_in'}/> }
+        render={() => isAuth ? children : <Redirect to={MainRoutes.SignInPath.link}/> }
     />
 
 }

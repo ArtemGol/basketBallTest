@@ -11,7 +11,7 @@ import {setPlayerToUpdate} from "../../../modules/player/playerSlice"
 import {deletePlayerThunkCreator} from "../../../modules/player/playerThunk"
 import {unwrapResult} from "@reduxjs/toolkit";
 import {useAppDispatch} from "../../../core/redux/store";
-import {AddUpdatePlayerPath, AddUpdateTeamPath, CardPlayersPath, CardTeamsPath} from "../../routes";
+import {MainRoutes} from "../../routes";
 
 export const HeadBlockDetails: FC<{
   player?: boolean
@@ -21,7 +21,7 @@ export const HeadBlockDetails: FC<{
   const history = useHistory()
   const dispatch: any = useAppDispatch()
   const goToUpdateItem = () => {
-    history.push(player ? AddUpdatePlayerPath : AddUpdateTeamPath)
+    history.push(player ? MainRoutes.AddUpdatePlayerPath.link : MainRoutes.AddUpdateTeamPath.link)
     if (player) {
       dispatch(setPlayerToUpdate())
     } else {
@@ -35,12 +35,12 @@ export const HeadBlockDetails: FC<{
     } else {
       await dispatch(deleteTeamThunkCreator({id})).then(unwrapResult)
     }
-    history.push(player ? CardPlayersPath : CardTeamsPath)
+    history.push(player ? MainRoutes.CardPlayersPath.link : MainRoutes.CardTeamsPath.link)
   }
   return (
     <HeadBlockDetailsStyles>
       <div className={'headDetailsPath'}>
-        <NavLink to={player ? CardPlayersPath : CardTeamsPath}>
+        <NavLink to={player ? MainRoutes.CardPlayersPath.link : MainRoutes.CardTeamsPath.link}>
           {player ? 'Players' : 'Teams'}
         </NavLink>&ensp;/&ensp;
         <NavLink to={'##'}>

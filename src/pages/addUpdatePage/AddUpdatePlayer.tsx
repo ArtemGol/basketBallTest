@@ -17,7 +17,7 @@ import { usePlayerSelector } from "../../modules/player/playerSlice";
 import { getTeamsThunkCreator } from "../../modules/team/teamThunk";
 import { unwrapResult } from "@reduxjs/toolkit";
 import {useAppDispatch} from "../../core/redux/store";
-import {CardPlayersPath} from "../routes";
+import {MainRoutes} from "../routes";
 
 export const AddUpdatePlayer = () => {
   const history = useHistory();
@@ -94,7 +94,7 @@ export const AddUpdatePlayer = () => {
             })
           ).then(unwrapResult);
         }
-        history.push(CardPlayersPath);
+        history.push(MainRoutes.CardPlayersPath.link);
       }
     },
     [dispatch, history, updatePlayer]

@@ -11,7 +11,7 @@ import {getTeamsThunkCreator} from "../../../modules/team/teamThunk"
 import {getPlayersThunkCreator} from "../../../modules/player/playerThunk"
 import {useAppDispatch} from "../../../core/redux/store";
 import {PlayerInterFace} from "../../../modules/player/playerTypes";
-import {AddUpdatePlayerPath, AddUpdateTeamPath} from "../../routes";
+import {MainRoutes} from "../../routes";
 import {TeamInterface} from "../../../modules/team/teamTypes";
 
 export const SearchButtonCard: FC<{
@@ -90,7 +90,7 @@ export const SearchButtonCard: FC<{
     }
 
     const addItem = () => {
-        history.push(hasSelect ? AddUpdatePlayerPath : AddUpdateTeamPath)
+        history.push(hasSelect ? MainRoutes.AddUpdatePlayerPath.link : MainRoutes.AddUpdateTeamPath.link)
         if (hasSelect) {
             addingItem && dispatch(setPlayerToAdd())
         } else {

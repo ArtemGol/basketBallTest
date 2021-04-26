@@ -16,6 +16,7 @@ import { useTeamSelector } from "../../modules/team/teamSlice";
 import { useHistory } from "react-router";
 import { unwrapResult } from "@reduxjs/toolkit";
 import {useAppDispatch} from "../../core/redux/store";
+import {MainRoutes} from "../routes";
 
 export const AddUpdateTeam = () => {
   const history = useHistory();
@@ -52,7 +53,7 @@ export const AddUpdateTeam = () => {
           ).then(unwrapResult);
         }
 
-        history.push("/card_teams");
+        history.push(MainRoutes.CardTeamsPath.link);
       }
     },
     [dispatch, history, updateTeam]
