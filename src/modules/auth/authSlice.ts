@@ -1,9 +1,9 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {TypedUseSelectorHook, useSelector} from "react-redux";
 import { signInThunkCreator, signUpThunkCreator } from "./authThunk";
-import { GlobalForAuth } from "./globalforauth";
+import { globalForAuthModule } from "../../utils/globalForAuthModule";
 import {CustomAlertFunction} from "../../utils/CustomAlertFunction";
-import {AuthInitialStateInterface, AuthInterFace, RootAuthStateInterface} from "./authTypes";
+import {AuthInitialStateInterface, IAuth, RootAuthStateInterface} from "./authTypes";
 
 const initialState: AuthInitialStateInterface = {
   error: null,
@@ -30,8 +30,8 @@ export const authSlice = createSlice({
     [signInThunkCreator.pending.type]: (state) => {
       state.isFetching = true;
     },
-    [signInThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<AuthInterFace>) => {
-      GlobalForAuth(state, payload);
+    [signInThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<IAuth>) => {
+      globalForAuthModule(state, payload);
       state.isFetching = false;
     },
     [signInThunkCreator.rejected.type]: (state, action: any) => {
@@ -47,8 +47,8 @@ export const authSlice = createSlice({
     [signUpThunkCreator.pending.type]: (state) => {
       state.isFetching = true
     },
-    [signUpThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<AuthInterFace>) => {
-      GlobalForAuth(state, payload);
+    [signUpThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<IAuth>) => {
+      globalForAuthModule(state, payload);
       state.isFetching = false
     },
     [signUpThunkCreator.rejected.type]: (state, action: any) => {

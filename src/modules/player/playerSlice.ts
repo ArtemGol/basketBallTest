@@ -9,7 +9,7 @@ import {
   updatePlayerThunkCreator,
 } from "./playerThunk";
 import {CustomAlertFunction} from "../../utils/CustomAlertFunction";
-import {PlayerInitialStateInterface, PlayerInterFace, PlayersInterFace, RootPlayerStateInterface} from "./playerTypes";
+import {PlayerInitialStateInterface, IPlayer, IPlayers, RootPlayerStateInterface} from "./playerTypes";
 
 const initialState: PlayerInitialStateInterface = {
   initialized: false,
@@ -43,7 +43,7 @@ export const playerSlice = createSlice({
     }
   },
   extraReducers: {
-    [getPlayersThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<PlayersInterFace>) => {
+    [getPlayersThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<IPlayers>) => {
       state.players = payload.data;
       state.playerCount = payload.count;
       state.currentPage = payload.page;
@@ -64,7 +64,7 @@ export const playerSlice = createSlice({
     [getPlayerThunkCreator.pending.type]: (state) => {
       state.initialized = true
     },
-    [getPlayerThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<PlayerInterFace>) => {
+    [getPlayerThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<IPlayer>) => {
       state.player = payload;
       state.initialized = false
     },

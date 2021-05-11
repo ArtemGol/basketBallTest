@@ -1,7 +1,7 @@
-import {ErrorInterface} from "../globaltypes";
+import {IError} from "../globaltypes";
 
 export interface ImageInitialStateInterface {
-    error: ErrorInterface | null
+    error: IError | null
     imageUrl: string
 }
 

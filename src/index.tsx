@@ -4,22 +4,14 @@ import reportWebVitals from "./reportWebVitals";
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import App from "./App";
-import {createGlobalStyle} from "styled-components";
 import {store} from "./core/redux/store";
-
-const Global = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Avenir', sans-serif;
-    box-sizing: border-box;
-  }`;
+import {GlobalStyles} from "./GlobalStyles";
 
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserRouter>
-                <Global/>
+                <GlobalStyles/>
                 <App/>
             </BrowserRouter>
         </Provider>

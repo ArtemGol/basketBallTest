@@ -1,10 +1,9 @@
 import {loginInstance} from "../baseRequest"
+import {IAuth} from "../../modules/auth/authTypes";
+import {ILoginRequest, IRegisterRequest} from "../dto/IAuthrization";
 
 export const authorization = {
-    registered: ({userName, login, password}: {
-        userName: string
-        login: string
-        password: string}) => {
+    registered: ({userName, login, password}: IRegisterRequest): Promise<IAuth> => {
         return loginInstance.post('Auth/SignUp', {
             userName,
             login,
@@ -13,9 +12,7 @@ export const authorization = {
             return response.data;
         })
     },
-    login: ({login, password}: {
-        login: string
-        password: string}) => {
+    login: ({login, password}: ILoginRequest): Promise<IAuth> => {
         return loginInstance.post('Auth/SignIn', {
             login,
             password

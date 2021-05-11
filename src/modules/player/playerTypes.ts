@@ -1,22 +1,22 @@
-import {ErrorInterface} from "../globaltypes";
+import {IError} from "../globaltypes";
 
 export interface PlayerInitialStateInterface {
     initialized: boolean
-    error: ErrorInterface | null
+    error: IError | null
     select: { value?: string, label?: string }[]
     search: string
     positions: string[]
-    updatePlayer: PlayerInterFace | null,
-    player: PlayerInterFace | null,
-    players: PlayerInterFace[]
+    updatePlayer: IPlayer | null,
+    player: IPlayer | null,
+    players: IPlayer[]
     playerCount: number
     currentPage: number
     pageSize: number
 }
 
-export interface PlayerInterFace {
+export interface IPlayer {
     avatarUrl: string
-    birthday: string
+    birthday: Date
     height: number
     id: number
     name: string
@@ -27,9 +27,9 @@ export interface PlayerInterFace {
     weight: number
 }
 
-export interface PlayersInterFace {
+export interface IPlayers {
     count: number
-    data: PlayerInterFace[]
+    data: IPlayer[]
     page: number
     size: number
 }

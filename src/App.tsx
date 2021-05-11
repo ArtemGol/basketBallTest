@@ -1,33 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Route, Switch} from "react-router-dom"
-import {routes} from "./pages/routes"
-import {deviceMax} from "./styles/Primitives"
-import './App.css'
+import {AppRoute} from "./pages/routes"
+import {deviceMax} from "./assets/constants/primitives"
 
 const App = () => {
-  return (
-      <AppWrapper className="App">
-        <Switch>
-          {routes.map((route, index) => (
-              <Route
-                  key={index}
-                  path={route.path}
-                  exact={route.exact}
-                  children={<route.main/>}
-              />
-          ))}
-        </Switch>
-      </AppWrapper>
-  )
+    return (
+        <AppWrapper className="App">
+            <AppRoute/>
+        </AppWrapper>
+    )
 }
 
 export default App
 
 const AppWrapper = styled.div`
-  min-height: 100vh;
+  height: 100vh;
   font-style: normal;
-  
+
   @media screen and ${deviceMax.md} {
     margin: 0;
   }

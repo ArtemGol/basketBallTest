@@ -1,34 +1,21 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { player } from "../../api/requests/player";
 import {SaveImageThunkCreator} from "../image/imageThunk";
+import {IPlayer} from "./playerTypes";
+import {IAddPlayerRequest, IGetPlayersRequest, IPage, IUpdatePlayerRequest} from "../../api/dto/IPlayer";
 
-export interface FormPlayerInterFace {
-    name: string
-    number: number
-    position: string
-    team: number
-    birthday: string
-    height: number
-    weight: number
-    avatarUrl: string | FormData
-    id?: number
-    avatarUrlString?: string
-
-}
-
-export const getPlayersThunkCreator = createAsyncThunk<string, {
-    playerName: string
-    TeamIds?: { value?: string, label?: string }[]
-    currentPage: number
-    pageSize: number
-}>(
+export const getPlayersThunkCreator = createAsyncThunk<IPage<IPlayer>, IGetPlayersRequest>(
   "player/getPlayers",
-  ({ playerName, TeamIds, currentPage, pageSize }) => {
+  ({
+       playerName,
+       TeamIds,
+       currentPage,
+       pageSize }) => {
     return player.getPlayers(playerName, TeamIds, currentPage, pageSize);
   }
 );
 
-export const getPlayerThunkCreator = createAsyncThunk<string, {
+export const getPlayerThunkCreator = createAsyncThunk<IPlayer, {
     id: number
 }>(
   "player/getPlayer",
@@ -37,10 +24,7 @@ export const getPlayerThunkCreator = createAsyncThunk<string, {
   }
 );
 
-export const addPlayerThunkCreator = createAsyncThunk<string, FormPlayerInterFace, {
-    dispatch: any
-    getState: any
-}>(
+export const addPlayerThunkCreator = createAsyncThunk<IPlayer, IAddPlayerRequest>(
   "player/addPlayer",
   async ({
     name,
@@ -51,8 +35,7 @@ export const addPlayerThunkCreator = createAsyncThunk<string, FormPlayerInterFac
     height,
     weight,
     avatarUrl,
-  }, {dispatch, getState}): Promise<any> => {
-      // @ts-ignore
+  }, {dispatch, getState}: {dispatch: any, getState: any}) => {
       await dispatch(SaveImageThunkCreator(avatarUrl))
       return player.addPlayer({
         name,
@@ -62,16 +45,12 @@ export const addPlayerThunkCreator = createAsyncThunk<string, FormPlayerInterFac
         birthday,
         height,
         weight,
-          // @ts-ignore
         avatarUrl: getState().image.imageUrl,
       });
   }
 );
 
-export const updatePlayerThunkCreator = createAsyncThunk<string, FormPlayerInterFace, {
-    dispatch: any,
-    getState: any
-}>(
+export const updatePlayerThunkCreator = createAsyncThunk<IPlayer, IUpdatePlayerRequest>(
   "player/updatePlayer",
   async ({
     name,
@@ -84,7 +63,7 @@ export const updatePlayerThunkCreator = createAsyncThunk<string, FormPlayerInter
     avatarUrl,
     avatarUrlString,
     id,
-  }, {dispatch, getState}): Promise<any> => {
+  }, {dispatch, getState}: {dispatch: any, getState: any}) => {
       avatarUrl && await dispatch(SaveImageThunkCreator(avatarUrl));
 
       return player.updatePlayer({
@@ -96,7 +75,6 @@ export const updatePlayerThunkCreator = createAsyncThunk<string, FormPlayerInter
       height,
       weight,
       avatarUrl: avatarUrl
-          // @ts-ignore
         ? getState().image.imageUrl
         : avatarUrlString,
       id,
@@ -104,11 +82,9 @@ export const updatePlayerThunkCreator = createAsyncThunk<string, FormPlayerInter
   }
 );
 
-export const deletePlayerThunkCreator = createAsyncThunk<string, {
-    id: number
-}>(
+export const deletePlayerThunkCreator = createAsyncThunk<IPlayer, { id: number }>(
   "player/deletePlayer",
-  ({ id }): Promise<any> => {
+  ({ id }) => {
     return player.deletePlayer(id);
   }
 );

@@ -1,8 +1,13 @@
 import {loginInstance} from "../baseRequest"
-import {FormPlayerInterFace} from "../../modules/player/playerThunk";
+import {IPlayer} from "../../modules/player/playerTypes";
+import {IAddPlayerRequest, IPage, IUpdatePlayerRequest} from "../dto/IPlayer";
 
 export const player = {
-  getPlayers: (playerName = '', TeamIds?: { value?: string, label?: string }[], currentPage = 1, pageSize = 6) => {
+  getPlayers: (
+      playerName = '',
+      TeamIds?: { value?: string, label?: string }[],
+      currentPage = 1,
+      pageSize = 6): Promise<IPage<IPlayer>> => {
     const TeamIDs = TeamIds && TeamIds.map(teamId => `TeamIds=${teamId}`).join('&')
     return loginInstance.get(`/Player/GetPlayers?Name=${playerName}&${TeamIDs}&Page=${currentPage}&PageSize=${pageSize}`,
       {
@@ -14,7 +19,7 @@ export const player = {
         return response.data;
       })
   },
-  getPlayer: (id: number) => {
+  getPlayer: (id: number): Promise<IPlayer> => {
     return loginInstance.get(`/Player/Get?id=${id}`,
       {
         headers: {
@@ -25,7 +30,7 @@ export const player = {
         return response.data
       })
   },
-  addPlayer: ({name, number, position, team, birthday, height, weight, avatarUrl}: FormPlayerInterFace) => {
+  addPlayer: ({name, number, position, team, birthday, height, weight, avatarUrl}: IAddPlayerRequest): Promise<IPlayer> => {
     return loginInstance.post('/Player/Add',
         {name, number, position, team, birthday, height, weight, avatarUrl}, {
         headers: {
@@ -36,7 +41,7 @@ export const player = {
         return response.data;
       })
   },
-  updatePlayer: ({name, number, position, team, birthday, height, weight, avatarUrl, id}: FormPlayerInterFace) => {
+  updatePlayer: ({name, number, position, team, birthday, height, weight, avatarUrl, id}: IUpdatePlayerRequest): Promise<IPlayer> => {
     return loginInstance.put('/Player/Update', {
       name, number, position, team, birthday, height, weight, avatarUrl, id
     }, {
@@ -45,7 +50,7 @@ export const player = {
       },
     })
   },
-  deletePlayer: (id: number) => {
+  deletePlayer: (id: number): Promise<IPlayer> => {
     return loginInstance.delete(`/Player/Delete?id=${id}`, {
       headers: {
         Authorization: `Bearer ` + localStorage.token

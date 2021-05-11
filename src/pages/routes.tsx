@@ -1,82 +1,97 @@
-import {SignIn} from "./authorizationPage/SignIn"
-import {CardTeams} from "./cartPage/CardTeams"
-import {AddUpdateTeam} from "./addUpdatePage/AddUpdateTeam"
-import {TeamDetails} from "./detailsPage/TeamDetails"
-import {SignUp} from "./authorizationPage/SignUp"
-import {CardPlayers} from "./cartPage/CardPlayers"
-import {PlayerDetails} from "./detailsPage/PlayerDetails"
-import {AddUpdatePlayer} from "./addUpdatePage/AddUpdatePlayer"
-import {NotFound} from "./NotFound";
+import {SignIn} from "./signIn/SignIn"
+import {CardTeams} from "./cartTeams/CardTeams"
+import {AddUpdateTeam} from "./addUpdateTeam/AddUpdateTeam"
+import {DetailsTeam} from "./detailsTeam/DetailsTeam"
+import {SignUp} from "./signUp/SignUp"
+import {CardPlayers} from "./cartPlayers/CardPlayers"
+import {DetailsPlayer} from "./detailsPlayer/DetailsPlayer"
+import {AddUpdatePlayer} from "./addUpdatePlayer/AddUpdatePlayer"
+import {NotFound} from "../component/NotFound";
+import {Redirect, Route, Switch} from "react-router-dom"
+import React, {FC} from "react"
+import {useAuthSelector} from "../modules/auth/authSlice"
 
-export const MainRoutes = {
-    SignInPath: {
-        link: '/sign_in'
-    },
-    SignUpPath: {
-        link: '/sign_up'
-    },
-    CardTeamsPath: {
-        link: '/card_teams'
-    },
-    TeamDetailsPath: {
-        link: '/team/'
-    },
-    AddUpdateTeamPath: {
-        link: '/add_update_team'
-    },
-    CardPlayersPath: {
-        link: '/card_players'
-    },
-    PlayerDetailsPath: {
-        link: '/player/'
-    },
-    AddUpdatePlayerPath: {
-        link: '/add_update_player'
-    },
+export const mainRoutes = {
+    SignInPath: '/sign_in',
+    SignUpPath: '/sign_up',
+    CardTeamsPath: '/card_teams',
+    TeamDetailsPath: '/team/',
+    AddUpdateTeamPath: '/add_update_team',
+    CardPlayersPath: '/card_players',
+    PlayerDetailsPath: '/player/',
+    AddUpdatePlayerPath: '/add_update_player'
 }
 
-export const routes = [
+export const AppRoute: FC = () => {
+    const isAuth = useAuthSelector(state => state.auth.isAuth)
+    return (
+        <Switch>
+            {routes.map((route, index) => (
+                <Route
+                    key={index}
+                    path={route.path}
+                    exact={route.exact}
+                    render={() => isAuth
+                        ? route?.private !== true
+                            ? <Redirect to={mainRoutes.CardTeamsPath}/>
+                            : route.main
+                        : route?.private === true
+                            ? <Redirect to={mainRoutes.SignInPath}/>
+                            : route.main}
+                />
+            ))}
+        </Switch>
+    )
+}
+
+const routes = [
     {
         path: "/",
         exact: true,
-        main: () => <SignIn/>
+        main: <SignIn/>
     },
     {
-        path: MainRoutes.SignInPath.link,
-        main: () => <SignIn/>
+        path: mainRoutes.SignInPath,
+        main: <SignIn/>
     },
     {
-        path: MainRoutes.SignUpPath.link,
-        main: () => <SignUp/>
+        path: mainRoutes.SignUpPath,
+        main: <SignUp/>
     },
     {
-        path: MainRoutes.CardTeamsPath.link,
-        main: () => <CardTeams/>
+        path: mainRoutes.CardTeamsPath,
+        main: <CardTeams/>,
+        private: true
     },
     {
-        path: MainRoutes.TeamDetailsPath.link + ':teamID',
-        main: () => <TeamDetails/>
+        path: mainRoutes.TeamDetailsPath + ':teamID',
+        main: <DetailsTeam/>,
+        private: true
     },
     {
-        path: MainRoutes.AddUpdateTeamPath.link,
-        main: () => <AddUpdateTeam/>
+        path: mainRoutes.AddUpdateTeamPath,
+        main: <AddUpdateTeam/>,
+        private: true
     },
     {
-        path: MainRoutes.CardPlayersPath.link,
-        main: () => <CardPlayers/>
+        path: mainRoutes.CardPlayersPath,
+        main: <CardPlayers/>,
+        private: true
     },
 
     {
-        path: MainRoutes.PlayerDetailsPath.link + ':playerID',
-        main: () => <PlayerDetails/>
+        path: mainRoutes.PlayerDetailsPath + ':playerID',
+        main: <DetailsPlayer/>,
+        private: true
 
     },
     {
-        path: MainRoutes.AddUpdatePlayerPath.link,
-        main: () => <AddUpdatePlayer/>
+        path: mainRoutes.AddUpdatePlayerPath,
+        main: <AddUpdatePlayer/>,
+        private: true
     },
     {
         path: "*",
-        main: () => <NotFound/>
+        main: <NotFound/>
     }
 ]

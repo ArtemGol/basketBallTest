@@ -1,18 +1,18 @@
-import {ErrorInterface} from "../globaltypes";
+import {IError} from "../globaltypes";
 
 export interface TeamInitialStateInterface {
     initialized: boolean,
-    error: ErrorInterface | null,
+    error: IError | null,
     search: string,
-    updateTeam: TeamInterface | null,
-    team: TeamInterface | null,
-    teams: TeamInterface[],
+    updateTeam: ITeam | null,
+    team: ITeam | null,
+    teams: ITeam[],
     teamCount: number,
     currentPage: number,
     pageSize: number,
 }
 
-export interface TeamInterface {
+export interface ITeam {
     conference: string
     division: string
     foundationYear: number
@@ -21,9 +21,9 @@ export interface TeamInterface {
     name: string
 }
 
-export interface TeamsInterface {
+export interface ITeams {
     count: number
-    data: TeamInterface[]
+    data: ITeam[]
     page: number
     size: number
 }

@@ -16,5 +16,5 @@ export const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: false,
   }),
-  logger,
+  logger
 ];

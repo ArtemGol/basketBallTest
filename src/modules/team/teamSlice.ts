@@ -7,7 +7,7 @@ import {
   getTeamThunkCreator,
   updateTeamThunkCreator,
 } from "./teamThunk";
-import {RootTeamStateInterface, TeamInitialStateInterface, TeamInterface, TeamsInterface} from "./teamTypes";
+import {RootTeamStateInterface, TeamInitialStateInterface, ITeam, ITeams} from "./teamTypes";
 import {CustomAlertFunction} from "../../utils/CustomAlertFunction";
 
 const initialState: TeamInitialStateInterface = {
@@ -40,7 +40,7 @@ export const teamSlice = createSlice({
     [getTeamsThunkCreator.pending.type]: (state) => {
       state.initialized = true
     },
-    [getTeamsThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<TeamsInterface>) => {
+    [getTeamsThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<ITeams>) => {
       state.initialized = false
       state.teams = payload.data;
       state.teamCount = payload.count;
@@ -58,7 +58,7 @@ export const teamSlice = createSlice({
     [getTeamThunkCreator.pending.type]: (state) => {
       state.initialized = true
     },
-    [getTeamThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<TeamInterface>) => {
+    [getTeamThunkCreator.fulfilled.type]: (state, { payload }: PayloadAction<ITeam>) => {
       state.initialized = false
       state.team = payload
     },
