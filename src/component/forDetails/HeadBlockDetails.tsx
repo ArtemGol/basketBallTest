@@ -15,20 +15,20 @@ interface IProps {
 
 export const HeadBlockDetails = ({player, name, goToUpdateItem, deleteItem}: IProps) => (
     <HeadBlockDetailsStyles>
-      <div className={'headDetailsPath'}>
-        <NavLink to={player ? mainRoutes.CardPlayersPath : mainRoutes.CardTeamsPath}>
-          {player ? 'Players' : 'Teams'}
-        </NavLink>&ensp;/&ensp;
-        <NavLink to={'##'}>
-          {name}
-        </NavLink>
-      </div>
-      <div className={'Icons'}>
-        <img src={editing} alt="edit" onClick={goToUpdateItem}/>
-        <img src={deleting} alt="delete" onClick={deleteItem}/>
-      </div>
+        <div>
+            <NavLink to={player ? mainRoutes.CardPlayersPath : mainRoutes.CardTeamsPath}>
+                {player ? 'Players' : 'Teams'}
+            </NavLink>&ensp;/&ensp;
+            <NavLink to={'##'}>
+                {name}
+            </NavLink>
+        </div>
+        <DetailIcons>
+            <img src={editing} alt="edit" onClick={goToUpdateItem}/>
+            <img src={deleting} alt="delete" onClick={deleteItem}/>
+        </DetailIcons>
     </HeadBlockDetailsStyles>
-  )
+)
 
 const HeadBlockDetailsStyles = styled.div`
   display: flex;
@@ -54,17 +54,22 @@ const HeadBlockDetailsStyles = styled.div`
     text-decoration: none;
     color: ${theme.red};
   }
+
   @media screen and ${deviceMax.sm} {
     border-radius: 0;
     border-left: none;
     border-right: none;
-    .Icons{
-      width: 30%;
-      display: flex;
-      justify-content: flex-end;
-    }
+
     img:first-child {
       margin-right: 5px;
     }
   };
+`
+
+const DetailIcons = styled.div`
+  @media screen and ${deviceMax.sm} {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+  }
 `

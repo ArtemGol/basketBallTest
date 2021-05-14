@@ -81,5 +81,5 @@ const DetailsDescriptionValueStyles = styled.div`
     div:last-child {
       font-size: 15px;
     }
-  };
+  }
 `

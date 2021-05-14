@@ -1,6 +1,4 @@
 import React, {ChangeEvent, FC} from "react";
-import {IPlayer} from "../../modules/player/playerTypes";
-import {ITeam} from "../../modules/team/teamTypes";
 import {WithHeaderSideBarLayout} from "../WithHeaderSideBarLayout";
 import {SearchButtonCart} from "./SearchButtonCart";
 import {EmptyHere} from "./EmptyHere";
@@ -12,9 +10,6 @@ import {deviceMax} from "../../assets/constants/primitives";
 interface IProps {
     hasSelect: boolean
     pageSize: number
-    query: URLSearchParams
-    teamsOptions?: { value: number, label: string }[]
-    items: IPlayer[] | ITeam[]
     initialized: boolean
     itemCount: number
     currentPage: number
@@ -28,9 +23,6 @@ interface IProps {
 export const CartLayout: FC<IProps> = ({
               hasSelect,
               pageSize,
-              query,
-              teamsOptions,
-              items,
               initialized,
               children,
               itemCount,
@@ -43,15 +35,13 @@ export const CartLayout: FC<IProps> = ({
         <WithHeaderSideBarLayout>
             <SearchButtonCart
                 hasSelect={hasSelect}
-                query={query}
-                options={teamsOptions}
                 onSearchChange={onSearchChange}
                 onSelectChange={onSelectChange}
                 addItem={addItem}
             />
             {!initialized
-                ? <CardItemsStyles items={items}>
-                    {items && items.length > 0
+                ? <CardItemsStyles itemCount={itemCount}>
+                    {itemCount > 0
                         ? children
                         : <EmptyHere team={!hasSelect}/>
                     }
@@ -68,8 +58,8 @@ export const CartLayout: FC<IProps> = ({
         </WithHeaderSideBarLayout>
     )
 
-const CardItemsStyles = styled.div<{ items: Array<any> }>`
-  display: ${props => props.items && props.items.length > 0 ? 'grid;' : 'flex;'};
+const CardItemsStyles = styled.div<{ itemCount: number }>`
+  display: ${props => props.itemCount > 0 ? 'grid;' : 'flex;'};
   align-items: center;
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr;

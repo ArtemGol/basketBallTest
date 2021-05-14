@@ -20,15 +20,15 @@ export const DataLabelDetails = ({player, name, number, obj, image}: IProps) => 
     return (
         <DataLabelDetailsStyles player={player}>
             <DetailsDataStyles player={player}>
-                <div className={'detailName'}>
+                <DetailsName>
                     {name}
                     {number &&
                         <NavLink to={'##'}>&ensp;#{number}</NavLink>
                     }
-                </div>
-                <div className={'detailsDescriptionValueGlobal'}>
+                </DetailsName>
+                <DetailsDescriptionValueGlobal>
                     {descriptionValues}
-                </div>
+                </DetailsDescriptionValueGlobal>
             </DetailsDataStyles>
             <DetailsLabelStyles player={player}>
                 <img src={image} alt='detailsLabel'/>
@@ -98,47 +98,47 @@ const DetailsDataStyles = styled.div<{player?: boolean}>`
     color: ${theme.red};
     font-size: 38px;
   }
-
-  .detailName {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 10%;
-  }
-
-  .detailsDescriptionValueGlobal {
-    font-size: 24px;
-    font-weight: bold;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
   
   @media screen and ${deviceMax.xl}{
-    .detailName {
-      margin-bottom: 5%;
-      font-size: 24px;
-    }
     a {
       font-size: 26px;
-    }
-    .detailsDescriptionValueGlobal {
-      font-size: 18px;
     }
   };
   @media screen and ${deviceMax.md} {
     width: 100%;
     align-items: center;
-    .detailsDescriptionValueGlobal {
-      display: flex;
-      flex-direction: column;
-    }
   };
   @media screen and ${deviceMax.sm} {
-    .detailName {
-      font-size: 17px;
-      padding: 0 0 48px 0;
-    }
     a {
       font-size: 19px;
     }
+  };
+`
+
+const DetailsName = styled.div`
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10%;
+  @media screen and ${deviceMax.xl}{
+      margin-bottom: 5%;
+      font-size: 24px;
+  };
+  @media screen and ${deviceMax.sm} {
+      font-size: 17px;
+      padding: 0 0 48px 0;
+  };
+`
+
+const DetailsDescriptionValueGlobal = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media screen and ${deviceMax.xl}{
+      font-size: 18px;
+  };
+  @media screen and ${deviceMax.md} {
+      display: flex;
+      flex-direction: column;
   };
 `

@@ -111,7 +111,7 @@ const HeaderStyles = styled.div`
     .authorizedUser {
       display: none;
     }
-  };
+  }
 `
 
 const BurgerButtonStyles = styled.nav<{ menuActive: boolean }>`
@@ -129,8 +129,6 @@ const BurgerButtonStyles = styled.nav<{ menuActive: boolean }>`
     margin-bottom: -20%;
     border-radius: 10px;
   }
-;
-
   .burger-btn:before {
     content: '';
     position: absolute;
@@ -140,8 +138,6 @@ const BurgerButtonStyles = styled.nav<{ menuActive: boolean }>`
     height: 2px;
     border-radius: 100px;
   }
-;
-
   .burger-btn span {
     content: '';
     position: absolute;
@@ -151,8 +147,6 @@ const BurgerButtonStyles = styled.nav<{ menuActive: boolean }>`
     height: 2px;
     border-radius: 100px;
   }
-;
-
   .burger-btn:after {
     content: '';
     position: absolute;
@@ -162,11 +156,10 @@ const BurgerButtonStyles = styled.nav<{ menuActive: boolean }>`
     height: 2px;
     border-radius: 100px;
   }
-;
 
   @media screen and ${deviceMin.md} {
     display: none;
-  };
+  }
 `
 
 const SideBarStyles = styled.div`
@@ -187,24 +180,21 @@ const SideBarStyles = styled.div`
     color: ${theme.lightGrey};
     margin-bottom: 40px;
   }
-;
 
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-;
 
   .active {
     filter: contrast(50%) sepia(100%) hue-rotate(318deg) brightness(0.8) saturate(500%);
   }
-;
 
   @media screen and ${deviceMax.md} {
     display: none;
     margin: 10px;
-  };
+  }
 `
 
 const SideBarMobileStyles = styled.div<{ menuActive: boolean }>`
@@ -216,7 +206,7 @@ const SideBarMobileStyles = styled.div<{ menuActive: boolean }>`
   z-index: 1;
   @media screen and ${deviceMin.md} {
     display: none;
-  };
+  }
 `
 
 const SidebarMenuMobileStyles = styled.div<{ menuActive: boolean }>`
@@ -230,7 +220,6 @@ const SidebarMenuMobileStyles = styled.div<{ menuActive: boolean }>`
   div {
     cursor: pointer;
   }
-;
 
   div:first-child {
     border-bottom: 0.5px solid ${theme.lightGrey};
@@ -238,7 +227,6 @@ const SidebarMenuMobileStyles = styled.div<{ menuActive: boolean }>`
     padding-top: 3vh;
     padding-bottom: 3vh;
   }
-;
 
   .signOutMobile {
     color: ${theme.lightestRed};
@@ -246,13 +234,11 @@ const SidebarMenuMobileStyles = styled.div<{ menuActive: boolean }>`
     margin-top: 52vh;
     margin-bottom: 5vh;
   }
-;
 
 
   .active {
     filter: contrast(50%) sepia(100%) hue-rotate(318deg) brightness(0.8) saturate(500%);
   }
-;
 
   a {
     margin-top: 3vh;
@@ -260,22 +246,19 @@ const SidebarMenuMobileStyles = styled.div<{ menuActive: boolean }>`
     grid-gap: 3%;
     color: ${theme.lightGrey};
   }
-;
 
   & > * {
     display: flex;
     align-items: center;
     padding-left: 3vh;
   }
-;
+
   @media screen and ${deviceMax.esm} {
     .authorizedUserName {
       width: 110px;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
-  ;
   }
 
   @media screen and ${verticalDeviceMax.esm} {
@@ -289,8 +272,9 @@ const Children = styled.div<{ details?: boolean }>`
   grid-area: c;
   background-color: ${theme.lightestGrey1};
   padding: 32px 80px;
+  min-height: 100vh;
   @media screen and ${deviceMax.md} {
     padding: 0;
     margin: ${props => props.details ? '12vh 0 10px;' : '12vh 10px 10px;'};
-  };
+  }
 `

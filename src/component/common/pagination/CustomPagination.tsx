@@ -32,8 +32,8 @@ export const CustomPagination = ({
                 ? <>
                     <PaginationBlock>
                         <ReactPaginate
-                            previousLabel={<div><img src={pageNavigate} alt="pageNavigate"/></div>}
-                            nextLabel={<div><img src={pageNavigate} alt="pageNavigate"/></div>}
+                            previousLabel={<img src={pageNavigate} alt="pageNavigate"/>}
+                            nextLabel={<img src={pageNavigate} alt="pageNavigate"/>}
                             breakLabel={'...'}
                             pageCount={itemsCount / pageSize}
                             marginPagesDisplayed={1}
@@ -70,7 +70,6 @@ const PaginationWithSelectBlock = styled.div`
 `
 
 const PaginationBlock = styled.div`
-  width: 390px;
 
   .container {
     height: 40px;

@@ -1,8 +1,8 @@
 import React, {FC, useMemo} from "react";
 import {IPlayer} from "../../modules/player/playerTypes";
-import {Roster} from "../../pages/detailsTeam/components/Roster";
+import {Roster} from "./Roster";
 import {WithHeaderSideBarLayout} from "../WithHeaderSideBarLayout";
-import {RosterLayout} from "../../pages/detailsTeam/components/RosterLayout";
+import {RosterLayout} from "./RosterLayout";
 import {NotFound} from "../NotFound";
 import {Preloader} from "../common/preloader/Preloader";
 import styled from "styled-components";

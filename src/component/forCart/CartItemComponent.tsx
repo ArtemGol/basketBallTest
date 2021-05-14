@@ -18,40 +18,67 @@ interface IProps {
 }
 
 export const CartItemComponent = ({
-         team,
-         name,
-         data,
-         image,
-         number,
-         id,
-         teams,
-         link
-     }: IProps) => {
-        const playerTeam = !team && teams?.find((team) => team.id === data)
+                                      team,
+                                      name,
+                                      data,
+                                      image,
+                                      number,
+                                      id,
+                                      teams,
+                                      link
+                                  }: IProps) => {
+    const playerTeam = !team && teams?.find((team) => team.id === data)
 
-        return (
-            <CardItemStyles>
-                <NavLink to={link + id}>
-                    <CardItemImageStyles team={team}>
-                        <img src={image} alt="label"/>
-                    </CardItemImageStyles>
-                </NavLink>
-                <CardItemDataStyles>
-                    <div className={"firstBlock"}>
-                        {name}
-                        <NavLink to={link + id}>{!team && ` #${number}`}</NavLink>
-                    </div>
-                    <div className={"secondBlock"}>
-                        {team ? `Year of foundation: ${data}` : playerTeam && playerTeam.name}
-                    </div>
-                </CardItemDataStyles>
-            </CardItemStyles>
-        );
-    }
+    return (
+        <CardItemStyles>
+            <NavLink to={link + id}>
+                <CardItemImageStyles team={team}>
+                    <img src={image} alt="label"/>
+                </CardItemImageStyles>
+            </NavLink>
+            <CardItemDataStyles>
+                <NameBlock>
+                    {name}
+                    <NavLink to={link + id}>{!team && ` #${number}`}</NavLink>
+                </NameBlock>
+                <DataBlock>
+                    {team ? `Year of foundation: ${data}` : playerTeam && playerTeam.name}
+                </DataBlock>
+            </CardItemDataStyles>
+        </CardItemStyles>
+    );
+}
 
 const CardItemStyles = styled.div`
   background: linear-gradient(121.57deg, ${theme.grey} 1.62%, ${theme.darkGrey1} 81.02%);
   border-radius: 4px;
+`
+
+const NameBlock = styled.div`
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: ${theme.white};
+
+  a {
+    text-decoration: none;
+    color: ${theme.red};
+    font-size: 20px;
+  }
+
+  @media screen and ${deviceMax.esm} {
+    font-size: 15px;
+    a {
+      font-size: 18px;
+    }
+  }
+`
+
+const DataBlock = styled.div`
+  font-size: 14px;
+  color: ${theme.lightGrey};
+  @media screen and ${deviceMax.esm} {
+    font-size: 13px;
+  }
 `
 
 const CardItemImageStyles = styled.div<{ team?: boolean }>`
@@ -68,16 +95,12 @@ const CardItemImageStyles = styled.div<{ team?: boolean }>`
     img {
       width: 150px;
     }
-
-  ;
-  };
+  }
   @media screen and ${deviceMax.esm} {
     img {
       width: 80px;
     }
-
-  ;
-  };
+  }
 `
 const CardItemDataStyles = styled.div`
   height: 100px;
@@ -91,40 +114,4 @@ const CardItemDataStyles = styled.div`
   div {
     padding: 0 5%;
   }
-;
-
-  .firstBlock {
-    margin-bottom: 12px;
-    font-size: 18px;
-    color: ${theme.white};
-
-    a {
-      text-decoration: none;
-      color: ${theme.red};
-      font-size: 20px;
-    }
-  }
-;
-
-  .secondBlock {
-    font-size: 14px;
-    color: ${theme.lightGrey};
-  }
-;
-  @media screen and ${deviceMax.esm} {
-    .firstBlock {
-      font-size: 15px;
-
-      a {
-        font-size: 18px;
-      }
-    }
-
-  ;
-    .secondBlock {
-      font-size: 13px;
-    }
-
-  ;
-  };
 `

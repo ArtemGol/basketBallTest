@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
 import {NavLink} from "react-router-dom";
-import {mainRoutes} from "../../routes";
-import {RosterStyles} from "./RosterLayout";
+import {mainRoutes} from "../../pages/routes";
+import {RosterCharacteristics, RosterNamePhoto, RosterStyles} from "./RosterLayout";
 
 export const Roster: FC<{
     number: number
@@ -28,20 +28,20 @@ export const Roster: FC<{
     return (
         <RosterStyles>
             <span>{number}</span>
-            <span className={'namePhoto'}>
-                    <NavLink to={mainRoutes.PlayerDetailsPath + rId}>
-                        <img width={'50px'} src={mini} alt="mini"/>
-                        </NavLink>
-                            <div>
-                                <div>{rName}</div>
-                                <div>{rPosition}</div>
-                            </div>
-                    </span>
-            <div className={'characteristics'}>
+            <RosterNamePhoto>
+                <NavLink to={mainRoutes.PlayerDetailsPath + rId}>
+                    <img width={'50px'} src={mini} alt="mini"/>
+                </NavLink>
+                <div>
+                    <div>{rName}</div>
+                    <div>{rPosition}</div>
+                </div>
+            </RosterNamePhoto>
+            <RosterCharacteristics>
                 <span>{rHeight} cm</span>
                 <span>{rWeight} kg</span>
                 <span>{rAge}</span>
-            </div>
+            </RosterCharacteristics>
         </RosterStyles>
     )
 }

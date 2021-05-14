@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import addPhoto from "../../assets/icon/addPhoto.png";
-import {ErrorStyles} from "../common/forms/CustomField";
 import styled from "styled-components";
 import {deviceMax, theme} from "../../assets/constants/primitives";
+import {ErrorStyles} from "../../pages/signIn/SignIn";
 
 interface IProps {
     errors?: any
@@ -36,7 +36,7 @@ export const CustomInputFile = ({
             );
             reader.readAsDataURL(file);
         }
-        setValue && setValue('imageUrl', e.target.files[0], { shouldValidate: true });
+        setValue && setValue(player ? 'avatarUrl' : 'imageUrl', e.target.files[0], { shouldValidate: true });
     }
     return (
         <AddPhotoMainStyles>

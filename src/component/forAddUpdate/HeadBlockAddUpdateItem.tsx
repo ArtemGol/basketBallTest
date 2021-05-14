@@ -13,7 +13,7 @@ interface IProps {
 
 export const HeadBlockAddUpdateItem = ({player, updateItem}: IProps) => (
         <HeadBlockAddItemStyles>
-            <div className={'headDetailsPath'}>
+            <div>
                 <NavLink to={player ? mainRoutes.CardPlayersPath : mainRoutes.CardTeamsPath}>
                     {player ? 'Players' : 'Teams'}
                 </NavLink>&ensp;/&ensp;

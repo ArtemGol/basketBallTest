@@ -9,7 +9,6 @@ import {useHistory} from "react-router"
 import {urlPagination, urlSearch} from "../../utils/urlGolobalFunctions"
 import {CartLayout} from "../../component/forCart/CartLayout";
 import {mainRoutes} from "../routes";
-import {clearImageSource, useImageSelector} from "../../modules/image/imageSlice";
 import {useDispatch} from "react-redux";
 
 export const CardPlayers = () => {
@@ -17,10 +16,6 @@ export const CardPlayers = () => {
     const query: URLSearchParams = useQuery()
     const history = useHistory()
     const {teamCount, teams} = useTeamSelector(state => state.team)
-    const teamsOptions = useTeamSelector(state => state.team?.teams.map(option => {
-        return {value: option.id, label: option.name}
-    }))
-    const {imageUrl} = useImageSelector(state => state.image)
 
     useEffect(() => {
         const searchText = query.get('searchText')
@@ -105,7 +100,6 @@ export const CardPlayers = () => {
     const addPlayer = () => {
         history.push(mainRoutes.AddUpdatePlayerPath)
         player && dispatch(setPlayerToAdd())
-        imageUrl && dispatch(clearImageSource())
     }
 
     const cartPlayer = useMemo(() =>
@@ -123,9 +117,6 @@ export const CardPlayers = () => {
     return (
         <CartLayout hasSelect={true}
                     pageSize={pageSize}
-                    query={query}
-                    teamsOptions={teamsOptions}
-                    items={players}
                     initialized={initialized}
                     itemCount={playerCount}
                     currentPage={currentPage}

@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 import styled from "styled-components"
-import {deviceMax, theme} from "../../../assets/constants/primitives"
+import {deviceMax, theme} from "../../assets/constants/primitives"
 
 
 export const RosterLayout: FC = ({children}) => {
@@ -12,11 +12,11 @@ export const RosterLayout: FC = ({children}) => {
             <RosterStyles units>
                 <span>#</span>
                 <span>Player</span>
-                <div className={'characteristics'}>
+                <RosterCharacteristics>
                     <span>Height</span>
                     <span>Weight</span>
                     <span>Age</span>
-                </div>
+                </RosterCharacteristics>
             </RosterStyles>
             <main>
                 {children}
@@ -53,43 +53,49 @@ const RosterHeadStyles = styled.div`
   border-radius: 10px 10px 0 0;
 `
 
-export const RosterStyles = styled.div<{units?: boolean}>`
+export const RosterStyles = styled.div<{ units?: boolean }>`
   color: ${theme.grey};
-  height: ${props => props.units ? '40px;' : '65px;'}
+  height: ${props => props.units ? '40px;' : '65px;'};
   align-items: center;
   display: grid;
   grid-template-columns: 1fr 10fr 7fr;
   border: 0.5px solid ${theme.lightGrey};
   border-top: none;
-  padding: ${props => props.units ? '0 32px;' : '0 40px 0 32px;'}
-  .namePhoto{
-    img{
-      border-radius: 100px;
-    }
-    display: grid;
-    grid-template-columns: 1fr 7fr;
-    div{
-      div:first-child{
-        padding-bottom: 8px;
-      }
-      div:last-child{
-        font-size: 12px;
-        color: ${theme.lightGrey};
-      }
-      }
-    }
-  }
-  .characteristics{
-    display: flex;
-    justify-content: space-between;
-  };
-  @media screen and ${deviceMax.sm}{
+  padding: ${props => props.units ? '0 32px;' : '0 40px 0 32px;'};
+  
+  @media screen and ${deviceMax.sm} {
     grid-template-columns: 1fr 6fr;
-    img{
+    img {
       padding-right: 10px;
     }
-    .characteristics{
-      display: none;
+  }
+`
+
+export const RosterNamePhoto = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+
+  img {
+    border-radius: 100px;
+  }
+
+  div {
+    div:first-child {
+      padding-bottom: 8px;
     }
+
+    div:last-child {
+      font-size: 12px;
+      color: ${theme.lightGrey};
+    }
+  }
+`
+
+export const RosterCharacteristics = styled.div`
+  display: flex;
+  justify-content: space-between;
+  
+  @media screen and ${deviceMax.sm} {
+      display: none;
   }
 `

@@ -7,20 +7,19 @@ interface IProps {
   placeholder?: any
   search?: boolean
   disabled?: boolean
+  error?: string
+  password?: boolean
 }
 
 export const InputS = styled.input<IProps>`
-  input[type="datetime-local"] {
-    width: 100%;
-  }
+  margin-top: ${props => props.map && '8px'};
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-  }
-  margin-top: ${props => props.map && '8px'};
+  };
   width: 100%;
-  border: 0.5px solid ${theme.lightestGrey};
+  border: ${props => props.error ? `1px solid ${theme.lightestRed}` : `0.5px solid ${theme.lightestGrey}`};
   background: ${(props) => (props.search ? `${theme.white}` : `${theme.lightestGrey1}`)};
   border-radius: 4px;
   box-sizing: border-box;
