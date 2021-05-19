@@ -1,7 +1,7 @@
 import { loginInstance } from "../baseRequest";
 
 export const image = {
-  save: (formData: string | FormData) => {
+  save: (formData: FormData) => {
     return loginInstance
       .post("/Image/SaveImage", formData, {
         headers: {

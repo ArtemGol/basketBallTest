@@ -33,7 +33,7 @@ export const CartItemComponent = ({
         <CardItemStyles>
             <NavLink to={link + id}>
                 <CardItemImageStyles team={team}>
-                    <img src={image} alt="label"/>
+                    <img src={`http://dev.trainee.dex-it.ru${image}`} alt="label"/>
                 </CardItemImageStyles>
             </NavLink>
             <CardItemDataStyles>

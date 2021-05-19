@@ -22,40 +22,44 @@ export const SignUp = () => {
     const {handleSubmit, register, formState: {errors}} = useForm({
         resolver: yupResolver(signUpSchema)
     })
+
     const [passwordType, setPasswordType] = useState(true);
+
+    const signUpFormFields = signUpFormContent.inputs.map((input, key) => {
+        const error = Object.keys(errors).find(key => key === input.name)
+        return (
+            <div key={key}>
+                <Label>{input.label}</Label>
+                {input.type !== 'checkbox'
+                    ? input.type === 'password'
+                        ? <InputLayout passwordType={passwordType}
+                                       setPasswordType={setPasswordType}>
+                            <InputS type={passwordType ? 'password' : ''}
+                                    {...register(input.name)}
+                                    error={error}
+                                    map/>
+                        </InputLayout>
+                        : <InputS {...register(input.name)}
+                                  error={error}
+                                  map/>
+
+                    : <CustomInputCheckBox register={register(input.name)}/>
+                }
+                {error &&
+                <ErrorStyles>{input?.type !== 'checkbox'
+                    ? input.name === 'repeatPassword' && errors?.repeatPassword?.type === 'oneOf'
+                        ? errors?.repeatPassword?.message
+                        : 'Required'
+                    : 'You must be accept the agreement'}</ErrorStyles>
+                }
+            </div>
+        )
+    })
+    
     return (
         <SignLayout>
             <SignFormStyles onSubmit={handleSubmit(onSubmit)}>
-                {signUpFormContent.inputs.map((input, key) => {
-                    const error = Object.keys(errors).find(key => key === input.name)
-                    return (
-                        <div key={key}>
-                            <Label>{input.label}</Label>
-                            {input.type !== 'checkbox'
-                                ? input.type === 'password'
-                                        ? <InputLayout passwordType={passwordType}
-                                                       setPasswordType={setPasswordType}>
-                                            <InputS type={passwordType ? 'password' : ''}
-                                                    {...register(input.name)}
-                                                    error={error}
-                                                    map/>
-                                        </InputLayout>
-                                        : <InputS {...register(input.name)}
-                                                  error={error}
-                                                  map/>
-
-                                : <CustomInputCheckBox register={register(input.name)}/>
-                            }
-                            {error &&
-                            <ErrorStyles>{input?.type !== 'checkbox'
-                                ? input.name === 'repeatPassword' && errors?.repeatPassword?.type === 'oneOf'
-                                    ? errors?.repeatPassword?.message
-                                    : 'Required'
-                                : 'You must be accept the agreement'}</ErrorStyles>
-                            }
-                        </div>
-                    )
-                })}
+                {signUpFormFields}
                 <CustomButton disabled={isFetching}>Sign Up</CustomButton>
             </SignFormStyles>
         </SignLayout>

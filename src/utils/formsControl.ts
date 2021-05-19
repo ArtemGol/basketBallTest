@@ -50,7 +50,7 @@ export const signUpSchema = yup.object().shape({
     userName: yup.string().required(),
     login: yup.string().required(),
     password: yup.string().required(),
-    repeatPassword: yup.string().required().oneOf([yup.ref('password'), null], 'The password is repeated incorrect'),
+    repeatPassword: yup.string().required().oneOf([yup.ref("password")], "Password repeated incorrect"),
     check: yup.boolean().oneOf([true], 'error').required('error')
 })
 

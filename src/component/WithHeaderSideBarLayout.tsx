@@ -64,7 +64,7 @@ const WithHeaderSidebarLayoutStyles = styled.div`
   "n c";
   grid-template-rows: 80px;
   grid-template-columns: 9.73% 90.27%;
-
+  height: 100vh;
   & > * {
     transition: 0.5s;
   }
@@ -166,6 +166,7 @@ const SideBarStyles = styled.div`
   grid-area: n;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 32px 0;
 
   img {
@@ -272,7 +273,6 @@ const Children = styled.div<{ details?: boolean }>`
   grid-area: c;
   background-color: ${theme.lightestGrey1};
   padding: 32px 80px;
-  min-height: 100vh;
   @media screen and ${deviceMax.md} {
     padding: 0;
     margin: ${props => props.details ? '12vh 0 10px;' : '12vh 10px 10px;'};

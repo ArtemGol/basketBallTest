@@ -24,30 +24,33 @@ export const SignIn = () => {
         resolver: yupResolver(signInSchema)
     })
     const [passwordType, setPasswordType] = useState(true);
+
+    const signInFormFields = signInFormContent.inputs.map((input, key) => {
+        const error = Object.keys(errors).find(key => key === input.name)
+        return (
+            <div key={key}>
+                <Label>{input.label}</Label>
+                {input.type === 'password'
+                    ? <InputLayout passwordType={passwordType}
+                                   setPasswordType={setPasswordType}>
+                        <InputS type={input.type === 'password' && passwordType ? 'password' : ''}
+                                {...register(input.name)}
+                                error={error}
+                                map/>
+                    </InputLayout>
+                    : <InputS {...register(input.name)}
+                              error={error}
+                              map/>
+                }
+                {error && <ErrorStyles>Required</ErrorStyles>}
+            </div>
+        )
+    })
+
     return (
         <SignLayout signIn>
             <SignFormStyles onSubmit={handleSubmit(onSubmit)}>
-                {signInFormContent.inputs.map((input, key) => {
-                    const error = Object.keys(errors).find(key => key === input.name)
-                    return (
-                        <div key={key}>
-                            <Label>{input.label}</Label>
-                            {input.type === 'password'
-                                ? <InputLayout passwordType={passwordType}
-                                               setPasswordType={setPasswordType}>
-                                    <InputS type={input.type === 'password' && passwordType ? 'password' : ''}
-                                            {...register(input.name)}
-                                            error={error}
-                                            map/>
-                                </InputLayout>
-                                : <InputS {...register(input.name)}
-                                          error={error}
-                                          map/>
-                            }
-                            {error && <ErrorStyles>Required</ErrorStyles>}
-                        </div>
-                    )
-                })}
+                {signInFormFields}
                 <CustomButton disabled={isFetching}>Sign In</CustomButton>
             </SignFormStyles>
         </SignLayout>

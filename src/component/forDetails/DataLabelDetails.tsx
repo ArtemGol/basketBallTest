@@ -31,7 +31,7 @@ export const DataLabelDetails = ({player, name, number, obj, image}: IProps) => 
                 </DetailsDescriptionValueGlobal>
             </DetailsDataStyles>
             <DetailsLabelStyles player={player}>
-                <img src={image} alt='detailsLabel'/>
+                <img src={`http://dev.trainee.dex-it.ru${image}`} alt='detailsLabel'/>
             </DetailsLabelStyles>
         </DataLabelDetailsStyles>
     )

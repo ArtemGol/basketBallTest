@@ -72,6 +72,18 @@ export const AddUpdateTeam = () => {
             defaultValues: {...updateTeam}
         })
 
+    const teamFormFields = teamFormContent.inputs.map((input: any, key) => {
+        const error = Object.keys(errors).find(key => key === input.name)
+        return (
+            <div key={key}>
+                <Label>{input.label}</Label>
+                <InputS type={input.type} {...register(input.name)}
+                        error={error} map/>
+                {error && <ErrorStyles>Required</ErrorStyles>}
+            </div>
+        )
+    })
+
     return (
         <WithHeaderSideBarLayout>
             <HeadBlockAddUpdateItem updateItem={updateTeam}/>
@@ -82,17 +94,7 @@ export const AddUpdateTeam = () => {
                                  defaultValue={updateTeam?.imageUrl}
                                  errors={errors.imageUrl}/>
                 <SecondColumn>
-                    {teamFormContent.inputs.map((input: any, key) => {
-                        const error = Object.keys(errors).find(key => key === input.name)
-                        return (
-                            <div key={key}>
-                                <Label>{input.label}</Label>
-                                <InputS type={input.type} {...register(input.name)}
-                                        error={error} map/>
-                                {error && <ErrorStyles>Required</ErrorStyles>}
-                            </div>
-                        )
-                    })}
+                    {teamFormFields}
                     <Double double={true}>
                         <CustomButton cancel onClick={GoBack} disabled={initialized}>
                             Cancel

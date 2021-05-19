@@ -20,7 +20,7 @@ export const imageSlice = createSlice({
     },
     extraReducers: {
         [SaveImageThunkCreator.fulfilled.type]: (state, {payload}: PayloadAction<string>) => {
-            state.imageUrl = `http://dev.trainee.dex-it.ru${payload}`
+            state.imageUrl = payload
         },
         [SaveImageThunkCreator.rejected.type]: (state, action: any) => {
             CustomAlertFunction(

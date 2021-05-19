@@ -10,7 +10,8 @@ interface IProps {
     Logout: () => void
 }
 
-export const GlobalForSidebar = ({image, mobile, Logout}: IProps) => (
+export const GlobalForSidebar = ({image, mobile, Logout}: IProps) => {
+    const forLinks = (
         <>
             <NavLink to={mainRoutes.CardTeamsPath} activeClassName={'active'}>
                 <img src={teams} alt="team"/>
@@ -20,12 +21,31 @@ export const GlobalForSidebar = ({image, mobile, Logout}: IProps) => (
                 <img src={players} alt="player"/>
                 <nav>Players</nav>
             </NavLink>
-            <div className={mobile ? 'signOutMobile' : ''} onClick={Logout}>
-                {mobile
-                    ? <img src={image} alt="sign_out"/>
-                    : <img src={image} alt="sign_out" width={'60px'}/>
-                }
-                {mobile && 'Sign out'}
-            </div>
         </>
     )
+    const forLogout = (
+        <div className={mobile ? 'signOutMobile' : ''} onClick={Logout}>
+            {mobile
+                ? <img src={image} alt="sign_out"/>
+                : <img src={image} alt="sign_out" width={'60px'}/>
+            }
+            {mobile && 'Sign out'}
+        </div>
+    )
+    return (
+        <>
+            {mobile
+                ? <>
+                    {forLinks}
+                    {forLogout}
+                </>
+                : <>
+                    <div>
+                        {forLinks}
+                    </div>
+                    {forLogout}
+                </>
+            }
+        </>
+    )
+}

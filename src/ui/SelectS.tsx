@@ -132,9 +132,8 @@ export const customStyles = {
             borderRadius: '4px',
             color: `${theme.white}`,
             fontSize: '14px',
-            '@media screen and (max-width: 540px)': {
-                fontSize: '14px'
-            }
+            marginRight: '3px',
+            height: '20px'
         }
     },
     multiValueLabel: (styles: any) => {
