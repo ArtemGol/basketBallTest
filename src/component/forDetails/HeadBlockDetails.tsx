@@ -7,27 +7,27 @@ import styled from "styled-components";
 import {deviceMax, theme} from "../../assets/constants/primitives";
 
 interface IProps {
-    player?: boolean
-    name: string
-    goToUpdateItem: () => void
-    deleteItem: () => void
+  player?: boolean
+  name: string
+  goToUpdateItem: () => void
+  deleteItem: () => void
 }
 
 export const HeadBlockDetails = ({player, name, goToUpdateItem, deleteItem}: IProps) => (
-    <HeadBlockDetailsStyles>
-        <div>
-            <NavLink to={player ? mainRoutes.CardPlayersPath : mainRoutes.CardTeamsPath}>
-                {player ? 'Players' : 'Teams'}
-            </NavLink>&ensp;/&ensp;
-            <NavLink to={'##'}>
-                {name}
-            </NavLink>
-        </div>
-        <DetailIcons>
-            <img src={editing} alt="edit" onClick={goToUpdateItem}/>
-            <img src={deleting} alt="delete" onClick={deleteItem}/>
-        </DetailIcons>
-    </HeadBlockDetailsStyles>
+  <HeadBlockDetailsStyles>
+    <div>
+      <NavLink to={player ? mainRoutes.CardPlayersPath : mainRoutes.CardTeamsPath}>
+        {player ? 'Players' : 'Teams'}
+      </NavLink>&ensp;/&ensp;
+      <NavLink to={'##'}>
+        {name}
+      </NavLink>
+    </div>
+    <DetailIcons>
+      <img src={editing} alt="edit" onClick={goToUpdateItem}/>
+      <img src={deleting} alt="delete" onClick={deleteItem}/>
+    </DetailIcons>
+  </HeadBlockDetailsStyles>
 )
 
 const HeadBlockDetailsStyles = styled.div`

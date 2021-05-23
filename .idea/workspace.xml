@@ -1,23 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efea5cd2-158f-47bb-84b8-dcf5df42bc2c" name="Default Changelist" comment="">
+    <list default="true" id="efea5cd2-158f-47bb-84b8-dcf5df42bc2c" name="Default Changelist" comment="end version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/requests/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/requests/image.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/baseRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/baseRequest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/dto/IAuthrization.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/dto/IAuthrization.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/dto/IPlayer.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/dto/IPlayer.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/dto/ITeam.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/dto/ITeam.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/requests/authorization.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/requests/authorization.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/requests/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/requests/player.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/requests/team.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/requests/team.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/constants/primitives.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/constants/primitives.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/GlobalForSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/GlobalForSidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/WithHeaderSideBarLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/WithHeaderSideBarLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/common/pagination/CustomPagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/pagination/CustomPagination.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/common/preloader/Preloader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/common/preloader/Preloader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/forAddUpdate/HeadBlockAddUpdateItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forAddUpdate/HeadBlockAddUpdateItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/forCart/CartItemComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forCart/CartItemComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/forCart/CartLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forCart/CartLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/forCart/EmptyHere.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forCart/EmptyHere.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/forCart/SearchButtonCart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forCart/SearchButtonCart.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/forDetails/DataLabelDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forDetails/DataLabelDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/ui/CustomSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/ui/CustomSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/forDetails/DescriptionValueDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forDetails/DescriptionValueDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/forDetails/DetailsLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forDetails/DetailsLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/forDetails/HeadBlockDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forDetails/HeadBlockDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/forDetails/Roster.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forDetails/Roster.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/forDetails/RosterLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forDetails/RosterLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/forSign/SignLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/forSign/SignLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/ui/CustomInputFile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/ui/CustomInputFile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/redux/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/redux/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/hooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/hooks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/authTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/authTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/globaltypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/globaltypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/image/imageSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/image/imageSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/image/imageThunk.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/image/imageThunk.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/image/imageTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/image/imageTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/player/playerThunk.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/player/playerThunk.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/player/playerTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/player/playerTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/team/teamThunk.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/team/teamThunk.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/team/teamTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/team/teamTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/addUpdatePlayer/AddUpdatePlayer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/addUpdatePlayer/AddUpdatePlayer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/addUpdateTeam/AddUpdateTeam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/addUpdateTeam/AddUpdateTeam.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cartPlayers/CardPlayers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cartPlayers/CardPlayers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cartTeams/CardTeams.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cartTeams/CardTeams.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/detailsPlayer/DetailsPlayer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detailsPlayer/DetailsPlayer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/detailsTeam/DetailsTeam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detailsTeam/DetailsTeam.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/routes.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/signIn/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/signIn/SignIn.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/signUp/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/signUp/SignUp.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/SelectS.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/SelectS.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/CustomAlertFunction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/CustomAlertFunction.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/formsControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/formsControl.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/globalForAuthModule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/globalForAuthModule.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/urlGolobalFunctions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/urlGolobalFunctions.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +79,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../react11/final/basketBallTest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -99,7 +135,8 @@
       <workItem from="1620890001475" duration="29375000" />
       <workItem from="1620969550424" duration="21915000" />
       <workItem from="1621247110863" duration="24819000" />
-      <workItem from="1621413521374" duration="13452000" />
+      <workItem from="1621413521374" duration="16582000" />
+      <workItem from="1621793452568" duration="1259000" />
     </task>
     <task id="LOCAL-00001" summary="end version">
       <created>1619426323553</created>
@@ -122,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620990719687</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="end version">
+      <created>1621428631527</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621428631527</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

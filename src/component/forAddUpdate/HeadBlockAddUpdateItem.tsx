@@ -7,28 +7,28 @@ import {theme} from "../../assets/constants/primitives";
 import {ITeam} from "../../modules/team/teamTypes";
 
 interface IProps {
-    player?: boolean,
-    updateItem: IPlayer | ITeam | null
+  player?: boolean,
+  updateItem: IPlayer | ITeam | null
 }
 
 export const HeadBlockAddUpdateItem = ({player, updateItem}: IProps) => (
-        <HeadBlockAddItemStyles>
-            <div>
-                <NavLink to={player ? mainRoutes.CardPlayersPath : mainRoutes.CardTeamsPath}>
-                    {player ? 'Players' : 'Teams'}
-                </NavLink>&ensp;/&ensp;
-                <NavLink to={'##'}>
-                    {player
-                        ? updateItem
-                            ? 'Update player'
-                            : 'Add new player'
-                        : updateItem
-                            ? 'Update team'
-                            : 'Add new team'}
-                </NavLink>
-            </div>
-        </HeadBlockAddItemStyles>
-    )
+  <HeadBlockAddItemStyles>
+    <div>
+      <NavLink to={player ? mainRoutes.CardPlayersPath : mainRoutes.CardTeamsPath}>
+        {player ? 'Players' : 'Teams'}
+      </NavLink>&ensp;/&ensp;
+      <NavLink to={'##'}>
+        {player
+          ? updateItem
+            ? 'Update player'
+            : 'Add new player'
+          : updateItem
+            ? 'Update team'
+            : 'Add new team'}
+      </NavLink>
+    </div>
+  </HeadBlockAddItemStyles>
+)
 
 const HeadBlockAddItemStyles = styled.div`
   display: flex;
@@ -39,6 +39,7 @@ const HeadBlockAddItemStyles = styled.div`
   font-size: 14px;
   font-weight: bold;
   color: ${theme.grey};
+
   a {
     text-decoration: none;
     color: ${theme.red};

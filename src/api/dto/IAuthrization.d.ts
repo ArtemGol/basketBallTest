@@ -1,10 +1,10 @@
 export interface ILoginRequest {
-    login: string
-    password: string
+  login: string
+  password: string
 }
 
 export interface IRegisterRequest {
-    userName: string
-    login: string
-    password: string
+  userName: string
+  login: string
+  password: string
 }

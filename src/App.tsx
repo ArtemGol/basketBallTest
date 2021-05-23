@@ -4,11 +4,11 @@ import {AppRoute} from "./pages/routes"
 import {deviceMax} from "./assets/constants/primitives"
 
 const App = () => {
-    return (
-        <AppWrapper className="App">
-            <AppRoute/>
-        </AppWrapper>
-    )
+  return (
+    <AppWrapper className="App">
+      <AppRoute/>
+    </AppWrapper>
+  )
 }
 
 export default App

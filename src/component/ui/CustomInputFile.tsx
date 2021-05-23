@@ -48,7 +48,9 @@ export const CustomInputFile = ({
                 <img src={addPhoto} alt="addPhoto" className={"addPhoto"}/>
                 {img || defaultValue
                     ? <img
-                        src={img ? img : defaultValue}
+                        src={img
+                          ? img
+                          : `http://dev.trainee.dex-it.ru${defaultValue}`}
                         alt="img"
                         className={"preview"}
                     />

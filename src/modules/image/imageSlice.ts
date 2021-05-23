@@ -5,32 +5,32 @@ import {ImageInitialStateInterface, RootImageStateInterface} from "./imageTypes"
 import {CustomAlertFunction} from "../../utils/CustomAlertFunction";
 
 const initialState: ImageInitialStateInterface = {
-    error: null,
-    imageUrl: ''
+  error: null,
+  imageUrl: ''
 }
 
 
 export const imageSlice = createSlice({
-    name: 'image',
-    initialState,
-    reducers: {
-        clearImageSource: (state) => {
-            state.imageUrl = ''
-        }
-    },
-    extraReducers: {
-        [SaveImageThunkCreator.fulfilled.type]: (state, {payload}: PayloadAction<string>) => {
-            state.imageUrl = payload
-        },
-        [SaveImageThunkCreator.rejected.type]: (state, action: any) => {
-            CustomAlertFunction(
-                action ? action.error?.message : 'Network Error',
-                '',
-                false,
-                false
-            )
-        }
+  name: 'image',
+  initialState,
+  reducers: {
+    clearImageSource: (state) => {
+      state.imageUrl = ''
     }
+  },
+  extraReducers: {
+    [SaveImageThunkCreator.fulfilled.type]: (state, {payload}: PayloadAction<string>) => {
+      state.imageUrl = payload
+    },
+    [SaveImageThunkCreator.rejected.type]: (state, action: any) => {
+      CustomAlertFunction(
+        action ? action.error?.message : 'Network Error',
+        '',
+        false,
+        false
+      )
+    }
+  }
 })
 
 export const {clearImageSource} = imageSlice.actions

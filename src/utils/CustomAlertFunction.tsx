@@ -31,8 +31,8 @@ export const CustomAlertFunction = (warning: string, success: string, user: bool
                 warning === serverMessage + error4 ?
                   'You must to delete all players before team deletion'
                   : '' ||
-                warning ||
-                success
+                  warning ||
+                  success
           }
         </div>
       ),

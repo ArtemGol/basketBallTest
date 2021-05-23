@@ -7,61 +7,61 @@ import styled from "styled-components";
 import {theme} from "../../../assets/constants/primitives"
 
 interface IProps {
-    itemsCount: number
-    pageSize: number
-    currentPage: number
-    onPageChanged: (selected: any) => void
-    onSelectPageCountChange: (e: any) => void
+  itemsCount: number
+  pageSize: number
+  currentPage: number
+  onPageChanged: (selected: any) => void
+  onSelectPageCountChange: (e: any) => void
 }
 
 const options = [
-    {value: '6', label: '6'},
-    {value: '12', label: '12'},
-    {value: '24', label: '24'}
+  {value: '6', label: '6'},
+  {value: '12', label: '12'},
+  {value: '24', label: '24'}
 ]
 
 export const CustomPagination = ({
-         itemsCount,
-         pageSize,
-         currentPage,
-         onPageChanged,
-         onSelectPageCountChange
-      }: IProps) => (
-        <PaginationWithSelectBlock>
-            {itemsCount !== 0
-                ? <>
-                    <PaginationBlock>
-                        <ReactPaginate
-                            previousLabel={<img src={pageNavigate} alt="pageNavigate"/>}
-                            nextLabel={<img src={pageNavigate} alt="pageNavigate"/>}
-                            breakLabel={'...'}
-                            pageCount={itemsCount / pageSize}
-                            marginPagesDisplayed={1}
-                            pageRangeDisplayed={3}
-                            onPageChange={onPageChanged}
-                            forcePage={currentPage
-                                ? currentPage - 1
-                                : 0}
+                                   itemsCount,
+                                   pageSize,
+                                   currentPage,
+                                   onPageChanged,
+                                   onSelectPageCountChange
+                                 }: IProps) => (
+  <PaginationWithSelectBlock>
+    {itemsCount !== 0
+      ? <>
+        <PaginationBlock>
+          <ReactPaginate
+            previousLabel={<img src={pageNavigate} alt="pageNavigate"/>}
+            nextLabel={<img src={pageNavigate} alt="pageNavigate"/>}
+            breakLabel={'...'}
+            pageCount={itemsCount / pageSize}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={3}
+            onPageChange={onPageChanged}
+            forcePage={currentPage
+              ? currentPage - 1
+              : 0}
 
-                            containerClassName={'container'}
-                            pageClassName={'pageListItem'}
-                            activeClassName={'active'}
-                            previousClassName={'prevBlock'}
-                            nextClassName={'nextBlock'}
-                        />
-                    </PaginationBlock>
-                    <SelectBlock>
-                        <Select menuPlacement="top"
-                                onChange={onSelectPageCountChange}
-                                styles={customStyles}
-                                options={options}
-                                defaultValue={options[0]}/>
-                    </SelectBlock>
-                </>
-                : ''
-            }
-        </PaginationWithSelectBlock>
-    )
+            containerClassName={'container'}
+            pageClassName={'pageListItem'}
+            activeClassName={'active'}
+            previousClassName={'prevBlock'}
+            nextClassName={'nextBlock'}
+          />
+        </PaginationBlock>
+        <SelectBlock>
+          <Select menuPlacement="top"
+                  onChange={onSelectPageCountChange}
+                  styles={customStyles}
+                  options={options}
+                  defaultValue={options[0]}/>
+        </SelectBlock>
+      </>
+      : ''
+    }
+  </PaginationWithSelectBlock>
+)
 
 const PaginationWithSelectBlock = styled.div`
   width: 100%;

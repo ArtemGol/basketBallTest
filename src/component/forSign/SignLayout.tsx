@@ -7,42 +7,42 @@ import styled from "styled-components";
 import {deviceMax, theme} from "../../assets/constants/primitives";
 
 interface IProps {
-    signIn?: boolean
+  signIn?: boolean
 }
 
 export const SignLayout: FC<IProps> =
-    ({
-         children,
-         signIn
-     }) => (
-        <SignComponentStyles signIn={signIn}>
-            <SignStyles>
-                <IntermediateBlock>
-                    <ForSign>
-                        <p>{signIn ? 'Sign In' : 'Sign Up'}</p>
-                    </ForSign>
-                    <main>{children}</main>
-                    <SignDescription>
-                        {signIn
-                            ? 'Not a member yet?'
-                            : 'Already a member?'
-                        }&ensp;
-                        {signIn
-                            ? <NavLink to={mainRoutes.SignUpPath}>
-                                Sign Up
-                            </NavLink>
-                            : <NavLink to={mainRoutes.SignInPath}>
-                                Sign In
-                            </NavLink>
-                        }
-                    </SignDescription>
-                </IntermediateBlock>
-            </SignStyles>
-            <SignImage signIn={signIn}>
-                <img src={signIn ? signInImg : signUpImg} alt="signImg"/>
-            </SignImage>
-        </SignComponentStyles>
-    )
+  ({
+     children,
+     signIn
+   }) => (
+    <SignComponentStyles signIn={signIn}>
+      <SignStyles>
+        <IntermediateBlock>
+          <ForSign>
+            <p>{signIn ? 'Sign In' : 'Sign Up'}</p>
+          </ForSign>
+          <main>{children}</main>
+          <SignDescription>
+            {signIn
+              ? 'Not a member yet?'
+              : 'Already a member?'
+            }&ensp;
+            {signIn
+              ? <NavLink to={mainRoutes.SignUpPath}>
+                Sign Up
+              </NavLink>
+              : <NavLink to={mainRoutes.SignInPath}>
+                Sign In
+              </NavLink>
+            }
+          </SignDescription>
+        </IntermediateBlock>
+      </SignStyles>
+      <SignImage signIn={signIn}>
+        <img src={signIn ? signInImg : signUpImg} alt="signImg"/>
+      </SignImage>
+    </SignComponentStyles>
+  )
 
 const SignComponentStyles = styled.div<{ signIn?: boolean }>`
   height: 100vh;

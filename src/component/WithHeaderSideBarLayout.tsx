@@ -10,51 +10,51 @@ import {logout} from "../modules/auth/authSlice";
 import {useDispatch} from "react-redux";
 
 interface IProps {
-    details?: boolean
+  details?: boolean
 }
 
 export const WithHeaderSideBarLayout: FC<IProps> = (props) => {
-    const [menuActive, setMenuActive] = useState(false)
-    const myName = localStorage.name
-    const dispatch = useDispatch()
-    const Logout = () => {
-        dispatch(logout())
-    }
+  const [menuActive, setMenuActive] = useState(false)
+  const myName = localStorage.name
+  const dispatch = useDispatch()
+  const Logout = () => {
+    dispatch(logout())
+  }
 
-    return (
-        <WithHeaderSidebarLayoutStyles {...props}>
-            <HeaderStyles>
-                <BurgerButtonStyles menuActive={menuActive} onClick={() => setMenuActive(!menuActive)}>
-                    <div className="burger-btn">
-                        <span/>
-                    </div>
-                </BurgerButtonStyles>
-                <img src={logo} alt="logo"/>
-                <div className={'authorizedUser'}>
-                    {myName}
-                    <img src={authorizedUser} alt="user"/>
-                </div>
-            </HeaderStyles>
+  return (
+    <WithHeaderSidebarLayoutStyles {...props}>
+      <HeaderStyles>
+        <BurgerButtonStyles menuActive={menuActive} onClick={() => setMenuActive(!menuActive)}>
+          <div className="burger-btn">
+            <span/>
+          </div>
+        </BurgerButtonStyles>
+        <img src={logo} alt="logo"/>
+        <div className={'authorizedUser'}>
+          {myName}
+          <img src={authorizedUser} alt="user"/>
+        </div>
+      </HeaderStyles>
 
-            <SideBarStyles>
-                <GlobalForSidebar image={signOut} Logout={Logout}/>
-            </SideBarStyles>
+      <SideBarStyles>
+        <GlobalForSidebar image={signOut} Logout={Logout}/>
+      </SideBarStyles>
 
-            <SideBarMobileStyles menuActive={menuActive} onClick={() => setMenuActive(false)}>
-                <SidebarMenuMobileStyles menuActive={menuActive} onClick={e => e.stopPropagation()}>
-                    <div>
-                        <img src={authorizedUser} alt="user"/>
-                        <span title={myName} className={'authorizedUserName'}>{myName}</span>
-                    </div>
-                    <GlobalForSidebar image={signOutMobile} mobile Logout={Logout}/>
-                </SidebarMenuMobileStyles>
-            </SideBarMobileStyles>
+      <SideBarMobileStyles menuActive={menuActive} onClick={() => setMenuActive(false)}>
+        <SidebarMenuMobileStyles menuActive={menuActive} onClick={e => e.stopPropagation()}>
+          <div>
+            <img src={authorizedUser} alt="user"/>
+            <span title={myName} className={'authorizedUserName'}>{myName}</span>
+          </div>
+          <GlobalForSidebar image={signOutMobile} mobile Logout={Logout}/>
+        </SidebarMenuMobileStyles>
+      </SideBarMobileStyles>
 
-            <Children {...props}>
-                {props.children}
-            </Children>
-        </WithHeaderSidebarLayoutStyles>
-    )
+      <Children {...props}>
+        {props.children}
+      </Children>
+    </WithHeaderSidebarLayoutStyles>
+  )
 }
 
 const WithHeaderSidebarLayoutStyles = styled.div`
@@ -65,6 +65,7 @@ const WithHeaderSidebarLayoutStyles = styled.div`
   grid-template-rows: 80px;
   grid-template-columns: 9.73% 90.27%;
   height: 100vh;
+
   & > * {
     transition: 0.5s;
   }
@@ -129,6 +130,7 @@ const BurgerButtonStyles = styled.nav<{ menuActive: boolean }>`
     margin-bottom: -20%;
     border-radius: 10px;
   }
+
   .burger-btn:before {
     content: '';
     position: absolute;
@@ -138,6 +140,7 @@ const BurgerButtonStyles = styled.nav<{ menuActive: boolean }>`
     height: 2px;
     border-radius: 100px;
   }
+
   .burger-btn span {
     content: '';
     position: absolute;
@@ -147,6 +150,7 @@ const BurgerButtonStyles = styled.nav<{ menuActive: boolean }>`
     height: 2px;
     border-radius: 100px;
   }
+
   .burger-btn:after {
     content: '';
     position: absolute;

@@ -4,25 +4,25 @@ import {deviceMax, theme} from "../../assets/constants/primitives"
 
 
 export const RosterLayout: FC = ({children}) => {
-    return (
-        <RosterListStyles>
-            <RosterHeadStyles>
-                Roster
-            </RosterHeadStyles>
-            <RosterStyles units>
-                <span>#</span>
-                <span>Player</span>
-                <RosterCharacteristics>
-                    <span>Height</span>
-                    <span>Weight</span>
-                    <span>Age</span>
-                </RosterCharacteristics>
-            </RosterStyles>
-            <main>
-                {children}
-            </main>
-        </RosterListStyles>
-    )
+  return (
+    <RosterListStyles>
+      <RosterHeadStyles>
+        Roster
+      </RosterHeadStyles>
+      <RosterStyles units>
+        <span>#</span>
+        <span>Player</span>
+        <RosterCharacteristics>
+          <span>Height</span>
+          <span>Weight</span>
+          <span>Age</span>
+        </RosterCharacteristics>
+      </RosterStyles>
+      <main>
+        {children}
+      </main>
+    </RosterListStyles>
+  )
 }
 
 const RosterListStyles = styled.div`
@@ -62,7 +62,7 @@ export const RosterStyles = styled.div<{ units?: boolean }>`
   border: 0.5px solid ${theme.lightGrey};
   border-top: none;
   padding: ${props => props.units ? '0 32px;' : '0 40px 0 32px;'};
-  
+
   @media screen and ${deviceMax.sm} {
     grid-template-columns: 1fr 6fr;
     img {
@@ -94,8 +94,8 @@ export const RosterNamePhoto = styled.div`
 export const RosterCharacteristics = styled.div`
   display: flex;
   justify-content: space-between;
-  
+
   @media screen and ${deviceMax.sm} {
-      display: none;
+    display: none;
   }
 `

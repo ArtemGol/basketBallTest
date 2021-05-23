@@ -33,7 +33,7 @@ export const DetailsPlayer = () => {
 
   const goToUpdatePlayer = () => {
     history.push(mainRoutes.AddUpdatePlayerPath)
-      dispatch(setPlayerToUpdate())
+    dispatch(setPlayerToUpdate())
     dispatch(clearImageSource())
   }
 
@@ -43,18 +43,18 @@ export const DetailsPlayer = () => {
   }
 
   return (
-      <DetailsLayout player={true}
-                     id={id}
-                     initialized={initialized}>
-              <HeadBlockDetails player
-                                name={name}
-                                goToUpdateItem={goToUpdatePlayer}
-                                deleteItem={deletePlayer}/>
-              <DataLabelDetails player
-                                name={name}
-                                number={number}
-                                obj={obj}
-                                image={avatarUrl}/>
-      </DetailsLayout>
+    <DetailsLayout player={true}
+                   id={id}
+                   initialized={initialized}>
+      <HeadBlockDetails player
+                        name={name}
+                        goToUpdateItem={goToUpdatePlayer}
+                        deleteItem={deletePlayer}/>
+      <DataLabelDetails player
+                        name={name}
+                        number={number}
+                        obj={obj}
+                        image={avatarUrl}/>
+    </DetailsLayout>
   )
 }

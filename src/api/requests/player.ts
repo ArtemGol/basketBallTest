@@ -4,10 +4,10 @@ import {IAddPlayerRequest, IPage, IUpdatePlayerRequest} from "../dto/IPlayer";
 
 export const player = {
   getPlayers: (
-      playerName = '',
-      TeamIds?: { value?: string, label?: string }[],
-      currentPage = 1,
-      pageSize = 6): Promise<IPage<IPlayer>> => {
+    playerName = '',
+    TeamIds?: { value?: string, label?: string }[],
+    currentPage = 1,
+    pageSize = 6): Promise<IPage<IPlayer>> => {
     const TeamIDs = TeamIds && TeamIds.map(teamId => `TeamIds=${teamId}`).join('&')
     return loginInstance.get(`/Player/GetPlayers?Name=${playerName}&${TeamIDs}&Page=${currentPage}&PageSize=${pageSize}`,
       {
@@ -30,9 +30,18 @@ export const player = {
         return response.data
       })
   },
-  addPlayer: ({name, number, position, team, birthday, height, weight, avatarUrl}: IAddPlayerRequest): Promise<IPlayer> => {
+  addPlayer: ({
+                name,
+                number,
+                position,
+                team,
+                birthday,
+                height,
+                weight,
+                avatarUrl
+              }: IAddPlayerRequest): Promise<IPlayer> => {
     return loginInstance.post('/Player/Add',
-        {name, number, position, team, birthday, height, weight, avatarUrl}, {
+      {name, number, position, team, birthday, height, weight, avatarUrl}, {
         headers: {
           Authorization: `Bearer ` + localStorage.token
         },
@@ -41,7 +50,17 @@ export const player = {
         return response.data;
       })
   },
-  updatePlayer: ({name, number, position, team, birthday, height, weight, avatarUrl, id}: IUpdatePlayerRequest): Promise<IPlayer> => {
+  updatePlayer: ({
+                   name,
+                   number,
+                   position,
+                   team,
+                   birthday,
+                   height,
+                   weight,
+                   avatarUrl,
+                   id
+                 }: IUpdatePlayerRequest): Promise<IPlayer> => {
     return loginInstance.put('/Player/Update', {
       name, number, position, team, birthday, height, weight, avatarUrl, id
     }, {

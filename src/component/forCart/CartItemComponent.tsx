@@ -7,46 +7,46 @@ import {ITeam} from "../../modules/team/teamTypes";
 //CartItemPlayer: null, CartItemTeam: team
 
 interface IProps {
-    teams?: ITeam[]
-    team?: boolean
-    name: string
-    data: string | number
-    image: string
-    number?: number
-    id: number
-    link: string
+  teams?: ITeam[]
+  team?: boolean
+  name: string
+  data: string | number
+  image: string
+  number?: number
+  id: number
+  link: string
 }
 
 export const CartItemComponent = ({
-                                      team,
-                                      name,
-                                      data,
-                                      image,
-                                      number,
-                                      id,
-                                      teams,
-                                      link
+                                    team,
+                                    name,
+                                    data,
+                                    image,
+                                    number,
+                                    id,
+                                    teams,
+                                    link
                                   }: IProps) => {
-    const playerTeam = !team && teams?.find((team) => team.id === data)
+  const playerTeam = !team && teams?.find((team) => team.id === data)
 
-    return (
-        <CardItemStyles>
-            <NavLink to={link + id}>
-                <CardItemImageStyles team={team}>
-                    <img src={`http://dev.trainee.dex-it.ru${image}`} alt="label"/>
-                </CardItemImageStyles>
-            </NavLink>
-            <CardItemDataStyles>
-                <NameBlock>
-                    {name}
-                    <NavLink to={link + id}>{!team && ` #${number}`}</NavLink>
-                </NameBlock>
-                <DataBlock>
-                    {team ? `Year of foundation: ${data}` : playerTeam && playerTeam.name}
-                </DataBlock>
-            </CardItemDataStyles>
-        </CardItemStyles>
-    );
+  return (
+    <CardItemStyles>
+      <NavLink to={link + id}>
+        <CardItemImageStyles team={team}>
+          <img src={`http://dev.trainee.dex-it.ru${image}`} alt="label"/>
+        </CardItemImageStyles>
+      </NavLink>
+      <CardItemDataStyles>
+        <NameBlock>
+          {name}
+          <NavLink to={link + id}>{!team && ` #${number}`}</NavLink>
+        </NameBlock>
+        <DataBlock>
+          {team ? `Year of foundation: ${data}` : playerTeam && playerTeam.name}
+        </DataBlock>
+      </CardItemDataStyles>
+    </CardItemStyles>
+  );
 }
 
 const CardItemStyles = styled.div`

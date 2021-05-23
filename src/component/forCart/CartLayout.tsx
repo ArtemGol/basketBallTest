@@ -8,55 +8,55 @@ import styled from "styled-components";
 import {deviceMax} from "../../assets/constants/primitives";
 
 interface IProps {
-    hasSelect: boolean
-    pageSize: number
-    initialized: boolean
-    itemCount: number
-    currentPage: number
-    onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void
-    onSelectChange?: (values: any) => void
-    onPageChanged: (selected: any) => void
-    onSelectPageCountChange: (e: any) => void
-    addItem: () => void
+  hasSelect: boolean
+  pageSize: number
+  initialized: boolean
+  itemCount: number
+  currentPage: number
+  onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onSelectChange?: (values: any) => void
+  onPageChanged: (selected: any) => void
+  onSelectPageCountChange: (e: any) => void
+  addItem: () => void
 }
 
 export const CartLayout: FC<IProps> = ({
-              hasSelect,
-              pageSize,
-              initialized,
-              children,
-              itemCount,
-              currentPage,
-              onSearchChange,
-              onSelectChange,
-              onPageChanged,
-              onSelectPageCountChange, addItem
-      }) => (
-        <WithHeaderSideBarLayout>
-            <SearchButtonCart
-                hasSelect={hasSelect}
-                onSearchChange={onSearchChange}
-                onSelectChange={onSelectChange}
-                addItem={addItem}
-            />
-            {!initialized
-                ? <CardItemsStyles itemCount={itemCount}>
-                    {itemCount > 0
-                        ? children
-                        : <EmptyHere team={!hasSelect}/>
-                    }
-                </CardItemsStyles>
-                : <Preloader/>
-            }
-            <CustomPagination
-                pageSize={pageSize}
-                itemsCount={itemCount}
-                currentPage={currentPage}
-                onPageChanged={onPageChanged}
-                onSelectPageCountChange={onSelectPageCountChange}
-            />
-        </WithHeaderSideBarLayout>
-    )
+                                         hasSelect,
+                                         pageSize,
+                                         initialized,
+                                         children,
+                                         itemCount,
+                                         currentPage,
+                                         onSearchChange,
+                                         onSelectChange,
+                                         onPageChanged,
+                                         onSelectPageCountChange, addItem
+                                       }) => (
+  <WithHeaderSideBarLayout>
+    <SearchButtonCart
+      hasSelect={hasSelect}
+      onSearchChange={onSearchChange}
+      onSelectChange={onSelectChange}
+      addItem={addItem}
+    />
+    {!initialized
+      ? <CardItemsStyles itemCount={itemCount}>
+        {itemCount > 0
+          ? children
+          : <EmptyHere team={!hasSelect}/>
+        }
+      </CardItemsStyles>
+      : <Preloader/>
+    }
+    <CustomPagination
+      pageSize={pageSize}
+      itemsCount={itemCount}
+      currentPage={currentPage}
+      onPageChanged={onPageChanged}
+      onSelectPageCountChange={onSelectPageCountChange}
+    />
+  </WithHeaderSideBarLayout>
+)
 
 const CardItemsStyles = styled.div<{ itemCount: number }>`
   display: ${props => props.itemCount > 0 ? 'grid;' : 'flex;'};

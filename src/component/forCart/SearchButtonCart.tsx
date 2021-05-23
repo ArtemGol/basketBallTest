@@ -9,38 +9,38 @@ import {useQuery} from "../../hooks/hooks";
 import {useTeamSelector} from "../../modules/team/teamSlice";
 
 interface IProps {
-    hasSelect?: boolean
-    options?: { value: number, label: string }[]
-    onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void
-    onSelectChange?: (values: any) => void
-    addItem: () => void
+  hasSelect?: boolean
+  options?: { value: number, label: string }[]
+  onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onSelectChange?: (values: any) => void
+  addItem: () => void
 }
 
 export const SearchButtonCart = ({
-                                     hasSelect,
-                                     onSearchChange,
-                                     onSelectChange,
-                                     addItem
+                                   hasSelect,
+                                   onSearchChange,
+                                   onSelectChange,
+                                   addItem
                                  }: IProps) => {
-    const teamsOptions = useTeamSelector(state => state.team?.teams.map(option => {
-        return {value: option.id, label: option.name}
-    }))
-    const query: URLSearchParams = useQuery()
-    return (
-        <SearchButtonCardStyles>
-            <SearchSelect>
-                <InputLayout search>
-                    <InputS search placeholder={'Search...'}
-                            onChange={onSearchChange}
-                            value={query.get('searchText') || ''}/>
-                </InputLayout>
-                {hasSelect && <CustomSelect isMulti options={teamsOptions} onChange={onSelectChange}/>}
-            </SearchSelect>
-            <CustomButton add onClick={addItem}>
-                Add
-            </CustomButton>
-        </SearchButtonCardStyles>
-    )
+  const teamsOptions = useTeamSelector(state => state.team?.teams.map(option => {
+    return {value: option.id, label: option.name}
+  }))
+  const query: URLSearchParams = useQuery()
+  return (
+    <SearchButtonCardStyles>
+      <SearchSelect>
+        <InputLayout search>
+          <InputS search placeholder={'Search...'}
+                  onChange={onSearchChange}
+                  value={query.get('searchText') || ''}/>
+        </InputLayout>
+        {hasSelect && <CustomSelect isMulti options={teamsOptions} onChange={onSelectChange}/>}
+      </SearchSelect>
+      <CustomButton add onClick={addItem}>
+        Add
+      </CustomButton>
+    </SearchButtonCardStyles>
+  )
 }
 
 const SearchButtonCardStyles = styled.div`
@@ -48,7 +48,7 @@ const SearchButtonCardStyles = styled.div`
   justify-content: space-between;
   grid-gap: 24px;
   margin-bottom: 32px;
-  
+
   @media screen and ${deviceMax.md} {
     flex-direction: column;
     grid-gap: 16px;
@@ -65,5 +65,5 @@ const SearchSelect = styled.div`
     display: flex;
     flex-direction: column;
     grid-gap: 16px;
-  }  
+  }
 `
